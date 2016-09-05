@@ -1,4 +1,4 @@
-import d3 from 'd3';
+import * as d3 from "d3";
 import dimensions from './dimensions';
 
 export default class WorldMap {
@@ -63,8 +63,9 @@ export default class WorldMap {
 
         // __s.stage.call( // must bind zoom to the svg ( like bellow) not to the group (above), see: // http://bl.ocks.org/cpdean/7a71e687dd5a80f6fd57
         __s.svg.call(
-            d3.behavior.zoom()
-            .translate([0, 0])
+            // d3.behavior.zoom()
+            d3.zoom()
+            .translateBy([0, 0])
             .scale(1)
             .scaleExtent([1, 14])
             .on('zoom', ()=>{ __s.stage.attr('transform', 'translate('+d3.event.translate+')scale('+d3.event.scale+')'); })
