@@ -1,0 +1,68 @@
+.am-row {
+    .make-row();
+}
+
+.am-columns(@xs: 12, @sm: @xs, @md: @sm, @lg: @md, @xl: @lg) {
+    float: left;
+    min-height: 1px;
+    @grid-column-padding: 20px;
+    padding-left: @grid-column-padding;
+    padding-right: @grid-column-padding;
+    .box-sizing(border-box);
+
+    width: percentage(@xs / @grid-columns);
+    @media (min-width: @am-breakpoint-sm-min) {
+        width: percentage(@sm / @grid-columns);
+    }
+    @media (min-width: @am-breakpoint-md-min) {
+        width: percentage(@md / @grid-columns);
+    }
+    @media (min-width: @am-breakpoint-lg-min) {
+        width: percentage(@lg / @grid-columns);
+    }
+    @media (min-width: @am-breakpoint-xl-min) {
+        width: percentage(@xl / @grid-columns);
+    }
+}
+
+.am-visible-max (@size) {
+
+    .visible(@size);
+
+    .visible (@size) when (@size = xs) {
+        @media (min-width: @am-breakpoint-sm-min) { display: none; }
+    }
+
+    .visible (@size) when (@size = sm) {
+        @media (min-width: @am-breakpoint-md-min) { display: none; }
+    }
+
+    .visible (@size) when (@size = md) {
+        @media (min-width: @am-breakpoint-lg-min) { display: none; }
+    }
+
+    .visible (@size) when (@size = lg) {
+        @media (min-width: @am-breakpoint-xl-min) { display: none; }
+    }
+}
+
+.am-visible-min (@size) {
+
+    .visible(@size);
+
+    .visible (@size) when (@size = sm) {
+        @media (max-width: @am-breakpoint-xs-max) { display: none; }
+    }
+
+    .visible (@size) when (@size = md) {
+        @media (max-width: @am-breakpoint-sm-max) { display: none; }
+    }
+
+    .visible (@size) when (@size = lg) {
+        @media (max-width: @am-breakpoint-md-max) { display: none; }
+    }
+
+    .visible (@size) when (@size = xl) {
+        @media (max-width: @am-breakpoint-lg-max) { display: none; }
+    }
+}

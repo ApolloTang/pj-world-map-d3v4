@@ -1,0 +1,168 @@
+// reset styleing when necessary
+
+.am-accounting {
+    * {
+        margin:0;
+        padding:0;
+    }
+}
+
+
+
+.am-accounting {
+
+    // variables:
+    @am-border-radius: 8px;
+    @am-border-color: #dfdfdf;
+
+    .am-horizontal {
+        .am-row;
+        div {
+            .am-columns(@xs:12);
+        }
+    }
+
+    .am-accouting-header {
+        margin-bottom: 50px;
+    }
+    .am-accounting-control {
+
+        margin-bottom: 20px;
+        .am-row;
+        .am-accounting-control-date {
+            .am-columns(@md:3, @lg:2);
+            button {
+                span {
+                }
+            }
+            button {
+                padding-top: 5px;
+                padding-bottom: 5px;
+                position: relative;
+                span:last-child {
+                    position: absolute;
+                    right: 10px;
+                    top: 42%;
+                }
+            }
+            .dropdown-menu {
+                margin-left: @grid-column-padding;
+                padding: 10px;
+            }
+        }
+        .am-accounting-control-date-2 {
+            .am-columns(@md:5, @lg:3);
+            div {
+                .am-columns(@md:6);
+                a {
+                    display: inline-block;
+                    width: 100%;
+                    height: 32px;
+                    line-height: 32px;
+                    text-align: center;
+                    font-size: 13px;
+                }
+            }
+        }
+        @media (max-width: @am-breakpoint-sm-max) {
+            .am-accounting-control-date-2 {margin-top: 10px;}
+
+        }
+    }
+
+    .am-accounting-content {
+        // margin-top: 20px;
+        .am-row;
+        .main {
+            .am-columns(@md:8);
+            @media (min-width: @am-breakpoint-md-min) {
+                float: right;
+            }
+            table{
+                .c1, .c2, .c3 { }
+                .c1{ }
+                .c2{
+                    text-align: right;
+                }
+                .c3{
+                    @media (min-width: @am-breakpoint-md-min) {
+                        min-width: 50px;
+                    }
+                    @media (max-width: @am-breakpoint-sm-max) {
+                        padding-left: 0px;
+                        padding-right: 0px;
+                        width: 0px;
+                    }
+                }
+                thead {
+                    tr th {
+                        border-bottom: 1px solid @am-border-color;
+                    }
+                }
+                tbody {
+                    tr td {
+                        border: 0px solid transparent;
+                    }
+                    tr:nth-child(2n+1) {
+                        background-color: #fff;
+                    }
+                    tr:nth-child(2n+2) {
+                        background-color: #eee;
+                    }
+                }
+                tfoot {
+                    td {
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+        .side {
+            margin-top:40px;
+            .am-columns(@md:4);
+            @media (min-width: @am-breakpoint-md-min) {
+                float: right;
+            }
+
+            padding-bottom: 20px;
+
+            h4 {
+                padding: 15px 20px;
+                margin-bottom: 0px;
+
+                background: #eee;
+
+                border-top-left-radius: @am-border-radius;
+                border-top-right-radius: @am-border-radius;
+                border-top: @am-border-color 1px solid;
+                border-left: @am-border-color 1px solid;
+                border-right: @am-border-color 1px solid;
+                border-bottom: transparent;
+            }
+            .content {
+                padding: 10px 20px 25px;
+
+                border: @am-border-color 1px solid;
+                border-top: transparent;
+                border-bottom-left-radius: @am-border-radius;
+                border-bottom-right-radius: @am-border-radius;
+
+                .rw + .rw {
+                }
+                .rw  {
+                    margin-top: 30px;
+                    > * {
+                        vertical-align: base;
+                        line-height: 16px;
+                    }
+                    .c2 {
+                        float: right;
+                        font-size: 14px;
+                        font-weight: bold;
+                    }
+                }
+            }
+        } // End : .side
+    }
+}
+
